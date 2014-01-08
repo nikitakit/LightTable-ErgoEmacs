@@ -1,0 +1,95 @@
+;; ErgoEmacs Dvorak keybindings
+
+{:+
+ {
+     :editor.keys.ergoemacs-dv {
+              ;;; CURSOR MOVEMENTS
+              ;; Single char cursor movement
+              "alt-h" [:editor.char-left]
+              "alt-n" [:editor.char-right]
+              "alt-c" [:editor.line-up]
+              "alt-t" [:editor.line-down]
+
+              ;; Move by word
+              "alt-g" [:editor.word-left]
+              "alt-r" [:editor.word-right]
+
+              ;; Move by paragraph
+              "alt-shift-g" [:editor.page-up :editor.selection.clear]
+              "alt-shift-r" [:editor.page-down :editor.selection.clear]
+              ; -- these should be paragraph up/down, and there shouldn't be
+              ; -- a selection bug
+
+              ;; Move to beginning/ending of line
+              "alt-d" [:editor.line-start]
+              "alt-shift-d" [:editor.line-end :editor.selection.clear]
+              ; -- selection bug
+
+              ;; Move by screen (page up/down)
+              "alt-shift-t" [:editor.page-down :editor.selection.clear]
+              "alt-shift-c" [:editor.page-up :editor.selection.clear]
+
+              ;; Move to beginning/ending of file
+              "alt-shift-h" [:editor.page-up :editor.page-up :editor.page-up :editor.page-up :editor.page-up :editor.page-up :editor.page-up :editor.page-up :editor.selection.clear] ; should be move to beginning of file
+              "alt-shift-n" [:editor.page-down :editor.page-down :editor.page-down :editor.page-down :editor.page-down :editor.page-down :editor.page-down :editor.page-down :editor.selection.clear] ; should be move to end of file
+              ; -- TODO: find actual commands
+
+              ;; isearch
+              "alt-s" [(:find.show)]
+              "alt-shift-s" [(:find.show true)]
+
+              ; -- recenter key omitted
+
+              ;;; MAJOR EDITING COMMANDS
+
+              ;; Delete previous/next char
+              "alt-e" [:editor.delete-char-left]
+              "alt-u" [:editor.delete-char-right]
+
+              ;; Delete previous/next word
+              "alt-." [:editor.delete-word-left]
+              "alt-p" [:editor.delete-word-right]
+
+              ;; Copy Cut Paste
+              "alt-q" [:editor.cut]
+              "alt-j" [:editor.copy :editor.selection.clear]
+              "alt-k" [:editor.paste]
+              ; -- others omitted
+              ; -- TODO: cut entire line if nothing is selected
+
+              ;; undo and redo
+              "alt-shift-'" [:editor.redo]
+              "alt-'" [:editor.undo]
+
+              ;; Kill line
+              "alt-i" [:editor.kill-line]
+              "alt-shift-i" [:editor.delete-line-left]
+
+              ;;"alt-space" [(:emacs.keymap-cmd "Ctrl-Space")]
+
+              ;;"alt-b" [(:editor.codemirror.command "test")]
+              ;;"alt-b" [:ergoemacs.test]
+              ;;"alt-b" [(:eval.custom "(inc __SELECTION__)" {:result-type :replace})]
+
+
+              ;;; WINDOW SPLITTING
+              "alt-o" [:tabset.next]
+              "alt-shift-o" [:tabset.prev]
+
+
+              ;;; OTHERS
+              "alt--" [:toggle-comment-selection]
+              "alt-/" [:auto-complete]
+             }
+
+     ;;:editor.keys.emacs {
+     ;;                    "alt-space" [(:emacs.keymap-cmd "Ctrl-Space")] ;; this doesn't work. Why?
+     ;;                   }
+
+     :find-bar {
+                "alt-shift-s" [:find.prev]
+                "ctrl-g" [:find.clear :find.hide]
+                "alt-s" [:find.next]
+                }
+      }
+}

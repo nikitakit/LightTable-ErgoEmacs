@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+lein cljsbuild clean
+lein cljsbuild once
+cat _compiled.js | grep 'goog.provide("lt.plugins.' -B 0 -A 1000000000000 > plugin.js

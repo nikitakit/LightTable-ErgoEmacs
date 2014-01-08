@@ -1,0 +1,14 @@
+{:+
+ {
+      :app [
+            (:lt.objs.plugins/load-js "plugin.js" true)
+            (:lt.objs.plugins/load-keymap "/home/nikita/dev/lighttable/lighttable-plugins/ergoemacs/plugin.keymap")
+            ]
+
+      :editor [(:lt.object/shadow-tag :editor.keys.normal :editor.keys.ergoemacs-dv)]
+     }
+
+ ;; You can use the subtract key to remove behavior that may get added by
+ ;; another diff
+ :- {:app []}
+}
