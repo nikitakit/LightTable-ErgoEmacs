@@ -2,7 +2,7 @@
  {
       :app [
             (:lt.objs.plugins/load-js "plugin.js" true)
-            (:lt.objs.plugins/load-keymap "/home/nikita/dev/lighttable/lighttable-plugins/ergoemacs/plugin.keymap")
+            (:lt.objs.plugins/load-keymap "plugin.keymap")
             ]
 
       :editor [(:lt.object/shadow-tag :editor.keys.normal :editor.keys.ergoemacs-dv)]
